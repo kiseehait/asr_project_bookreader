@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;Frame.initFileDirGUI()&apos; to &apos;initFileOpGUI&apos;&#x0A;- Original project: &apos;BookReader&apos;&#x0A;- Original element: &apos;Frame.initFileDirGUI()&apos;&#x0A;- Renamed element: &apos;Frame.initFileOpGUI()&apos;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;initFileDirGUI&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;{Frame.java[Frame~initFileDirGUI" name="initFileOpGUI" references="true" stamp="1461332879934" version="1.0"/>
+</session>
