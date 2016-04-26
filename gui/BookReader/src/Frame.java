@@ -85,7 +85,7 @@ public class Frame {
 	
 	private void initFileOpPanel() {
 		fileOpPanel = new JPanel();
-		fileOpPanel.setBorder(BorderFactory.createTitledBorder("Open file"));
+		fileOpPanel.setBorder(BorderFactory.createTitledBorder("File"));
 		fileOpPanel.setLayout(new FlowLayout());
 		
 		initFileOpGUI();
@@ -152,7 +152,7 @@ public class Frame {
 	private void initTextDisplayPanel() {
 		textDisplayPanel = new JPanel();
 		textDisplayPanel.setLayout(new FlowLayout());
-		textDisplayPanel.setBorder(BorderFactory.createTitledBorder("Text"));
+		textDisplayPanel.setBorder(BorderFactory.createTitledBorder("Content"));
 		
 		initTextDisplayGUI();
 		textDisplayPanel.add(textDisplay);
