@@ -1,0 +1,76 @@
+
+public class Controller {
+	// window
+	private Frame frame;
+	
+	
+	// controller variables 
+	private int currentChapter = 0;
+	private int currentPage = 0;
+
+	
+	// sample data
+	private String[][] sampleBook = {
+			// 0:Other
+			{
+				// 0:Cover
+				"",
+				
+				// 1:Contents
+				"",
+				
+				// 2:Preface
+				"",
+				
+				// 3:Appendix
+				"",
+				
+				// 4:Reference
+				"",
+				
+				// 5:Index
+				"",
+				
+				// 6:Back Cover
+				"",
+				
+				// 7:...
+			},
+			
+			// 1:Chapter 1
+			{
+				// 0:Page 1
+				"",
+				
+				
+			},
+			
+			// 2:Chapter 2
+			{
+				
+			},
+	};
+	
+	
+	// constructor
+	public Controller(Frame frame) {
+		this.frame = frame;
+	}
+	
+	
+	// start or stop reading
+	public void startReading() {
+		frame.setReading();
+	}
+	
+	public void stopReading() {
+		frame.setNotReading();
+	}
+	
+	
+	// next or previous page
+	public void nextPage() {
+		
+	}
+	
+}

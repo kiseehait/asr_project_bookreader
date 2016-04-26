@@ -18,6 +18,7 @@ public class Frame {
 	// window
 	private JFrame window;
 	private JPanel panel;
+	private final String title = "Book Reader";
 	
 	// file operation panel
 	private JPanel fileOpPanel;
@@ -38,7 +39,7 @@ public class Frame {
 	}
 	
 	private void initWindow() {
-		window = new JFrame("Book Reader");
+		window = new JFrame(title);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(false);
 		
@@ -93,6 +94,10 @@ public class Frame {
 			}
 		});
 		
+		// lock file
+		fileDirField.setEditable(false);
+		fileDirField.setText("./testfile.book");
+		
 		openFileButton = new JButton("Open");
 		openFileButton.addActionListener(new ActionListener() {
 			
@@ -137,6 +142,18 @@ public class Frame {
 		textDisplay = new JLabel("<html><center><h1>Please opan a file to read more text.</h1></center><br><p>Line1....................................................................................................................................................................................<br>Line2<br>Line3</p></html>");
 		textDisplay.setAlignmentX(Component.LEFT_ALIGNMENT);
 		textDisplay.setHorizontalAlignment(0);
+	}
+	
+	public void changeContent(String text) {
+		textDisplay.setText(text);
+	}
+	
+	public void setReading() {
+		window.setTitle(title + " [Reading]");
+	}
+	
+	public void setNotReading() {
+		window.setTitle(title + " [Not Reading]");
 	}
 
 }

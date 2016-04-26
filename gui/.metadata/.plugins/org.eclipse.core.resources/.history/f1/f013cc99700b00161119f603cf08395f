@@ -1,0 +1,14 @@
+
+public class Controller {
+	private Frame frame;
+	
+	private String[] sampleData = {
+			
+	};
+	
+	public Controller(Frame frame) {
+		this.frame = frame;
+	}
+	
+	
+}
