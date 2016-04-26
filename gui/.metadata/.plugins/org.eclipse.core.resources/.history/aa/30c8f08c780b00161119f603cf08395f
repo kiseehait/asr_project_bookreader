@@ -65,9 +65,6 @@ public class Frame {
 		
 		initTextDisplayPanel();
 		panel.add(textDisplayPanel, BorderLayout.CENTER);
-		
-		initStatusPanel();
-		panel.add(statusPanel, BorderLayout.SOUTH);
 	}
 	
 	private void initFileOpPanel() {
@@ -152,16 +149,12 @@ public class Frame {
 	}
 	
 	private void initStatusPanel() {
-		statusPanel = new JPanel();
-		statusPanel.setLayout(new FlowLayout());
-		statusPanel.setBorder(BorderFactory.createTitledBorder("Status"));
 		
-		initStatusGUI();
-		statusPanel.add(statusText);
 	}
 	
 	private void initStatusGUI() {
-		statusText = new JLabel("file is not opened");
+		statusText = new JLabel("status: ");
+		statusText.setAlignmentX(Component.RIGHT_ALIGNMENT);
 	}
 	
 	public void changeContent(String text) {
@@ -169,15 +162,11 @@ public class Frame {
 	}
 	
 	public void setReading() {
-		statusText.setText("reading");
+		window.setTitle(title + " [Reading]");
 	}
 	
 	public void setNotReading() {
-		statusText.setText("not reading");
-	}
-	
-	public void setRepeating() {
-		statusText.setText("repeating");
+		window.setTitle(title + " [Not Reading]");
 	}
 
 }

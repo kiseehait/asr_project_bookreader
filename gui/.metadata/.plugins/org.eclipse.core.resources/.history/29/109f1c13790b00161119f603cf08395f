@@ -115,17 +115,13 @@ public class Controller {
 	}
 	
 	
-	// start or stop reading or repeating
+	// start or stop reading
 	public void startReading() {
 		frame.setReading();
 	}
 	
 	public void stopReading() {
 		frame.setNotReading();
-	}
-	
-	public void repeating() {
-		frame.setRepeating();
 	}
 	
 	

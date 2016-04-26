@@ -154,14 +154,13 @@ public class Frame {
 	private void initStatusPanel() {
 		statusPanel = new JPanel();
 		statusPanel.setLayout(new FlowLayout());
-		statusPanel.setBorder(BorderFactory.createTitledBorder("Status"));
 		
 		initStatusGUI();
 		statusPanel.add(statusText);
 	}
 	
 	private void initStatusGUI() {
-		statusText = new JLabel("file is not opened");
+		statusText = new JLabel("status: ");
 	}
 	
 	public void changeContent(String text) {
@@ -169,15 +168,15 @@ public class Frame {
 	}
 	
 	public void setReading() {
-		statusText.setText("reading");
+		statusText.setText("status: reading");
 	}
 	
 	public void setNotReading() {
-		statusText.setText("not reading");
+		statusText.setText("status: not reading");
 	}
 	
-	public void setRepeating() {
-		statusText.setText("repeating");
+	public void setRepeat() {
+		statusText.setText("repeat");
 	}
 
 }

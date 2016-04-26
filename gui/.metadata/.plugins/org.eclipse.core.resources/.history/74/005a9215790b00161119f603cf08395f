@@ -176,7 +176,7 @@ public class Frame {
 		statusText.setText("not reading");
 	}
 	
-	public void setRepeating() {
+	public void setRepeat() {
 		statusText.setText("repeating");
 	}
 
