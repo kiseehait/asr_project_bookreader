@@ -1,0 +1,284 @@
+
+public class Controller {
+	// window
+	private Frame frame;
+	
+	
+	// controller variables 
+	private int currentChapter = 0;
+	private int currentPage = 0;
+
+	
+	// sample data
+	private String[][] sampleBook = {
+			// 0:Front Content
+			{
+				// 0:Cover
+				"Sample Book\n\nby Sir ABC DEF",
+				
+				// 1:Preface
+				"This is a preface of this sample book.",
+				
+				// 2:Contents
+				"Contents\n\nContent\t\t\t\t\t\t\tPage\nChapter1\t\t\t\t\t\t\t1"
+			},
+			
+			// 1:Chapter 1
+			{
+				// 0:Begin Chapter Page
+				"",
+				
+				
+			},
+			
+			// 2:Chapter 2
+			{
+				
+			},
+			
+			// 3:Chapter 3
+			{
+				
+			},
+			
+			// 4:Chapter 4
+			{
+				
+			},
+			
+			// 5:Chapter 5
+			{
+				
+			},
+			
+			// 6:Chapter 6
+			{
+				
+			},
+			
+			// 7:Chapter 7
+			{
+				
+			},
+			
+			// 8:Chapter 8
+			{
+				
+			},
+			
+			// 9:Chapter 9
+			{
+				
+			},
+			
+			// 10:Chapter 10
+			{
+				
+			},
+			
+			// 11:Chapter 11
+			{
+				
+			},
+			
+			// 12:Chapter 12
+			{
+				
+			},
+			
+			// 13:Back Content
+			{
+				// 0:Appendix
+				"",
+				
+				// 1:Index
+				"",
+				
+				// 2:Reference
+				"",
+				
+				// 3:Back Cover
+				""
+			}
+	};
+	
+	
+	// constructor
+	public Controller(Frame frame) {
+		this.frame = frame;
+	}
+	
+	
+	// update GUI
+	private void render() {
+		frame.changeContent(sampleBook[currentChapter][currentPage]);
+		
+		if (currentChapter == 0) {
+			frame.updateLocation(currentChapter, 0);
+		} else {
+			frame.updateLocation(currentChapter, currentPage);
+		}
+	}
+	
+	
+	// start or stop reading or repeating
+	public void startReading() {
+		frame.setReading();
+	}
+	
+	public void stopReading() {
+		frame.setNotReading();
+	}
+	
+	public void repeating() {
+		frame.setRepeating();
+	}
+	
+	
+	// next or previous page
+	public void nextPage() {
+		currentPage++;
+		
+		if (currentPage >= sampleBook[currentChapter].length) {
+			nextChapter();
+		} else {
+			render();
+		}
+	}
+	
+	public void previousPage() {
+		currentPage--;
+		
+		if (currentPage < 0) {
+			previousChapter();
+		} else {
+			render();
+		}
+	}
+	
+	
+	// next or previous chapter
+	public void nextChapter() {
+		currentChapter++;
+		currentPage = 0;
+		
+		if (currentChapter >= sampleBook.length) {
+			goToBackCover();
+		} else {
+			render();
+		}
+	}
+	
+	public void previousChapter() {
+		currentChapter--;
+		
+		if (currentChapter < 0) {
+			goToFrontCover();
+		} else {
+			currentPage = sampleBook[currentChapter].length - 1;
+			render();
+		}
+	}
+	
+
+	// go to ...
+	public void goToFrontCover() {
+		currentChapter = 0;
+		currentPage = 0;
+		
+		render();
+	}
+	
+	public void goToBackCover() {
+		currentChapter = 13;
+		currentPage = 3;
+		
+		render();
+	}
+	
+	public void goToPreface() {
+		currentChapter = 0;
+		currentPage = 1;
+		
+		render();
+	}
+	
+	public void goToContent() {
+		currentChapter = 0;
+		currentPage = 2;
+		
+		render();
+	}
+	
+	public void goToAppendix() {
+		currentChapter = 13;
+		currentPage = 0;
+		
+		render();
+	}
+	
+	public void goToIndex() {
+		currentChapter = 13;
+		currentPage = 1;
+		
+		render();
+	}
+	
+	public void goToReference() {
+		currentChapter = 13;
+		currentPage = 2;
+		
+		render();
+	}
+	
+	public void goToBeginOfChapter() {
+		currentPage = 0;
+		
+		render();
+	}
+	
+	public void goToEndOfChapter() {
+		currentPage = sampleBook[currentChapter].length - 1;
+		
+		render();
+	}
+	
+	public void goToPage(int page) {
+		if (page < 0) {
+			goToFrontCover();
+		} else {
+			int i = 1;
+			
+			for (i = 1; i < sampleBook.length; i++) {
+				if (page >= sampleBook[i].length) {
+					page -= sampleBook[i].length;
+				} else {
+					break;
+				}
+			}
+			
+			if (page >= sampleBook[i].length) {
+				goToBackCover();
+			} else {
+				currentChapter = i;
+				currentPage = page;
+				
+				render();
+			}
+		}		
+	}
+	
+	public void goToChapter(int chapter) {
+		if (chapter < 0) {
+			goToFrontCover();
+		} else if (chapter >= sampleBook.length) {
+			goToBackCover();
+		} else {
+			currentChapter = chapter;
+			currentPage = 0;
+			
+			render();
+		}
+	}
+	
+}

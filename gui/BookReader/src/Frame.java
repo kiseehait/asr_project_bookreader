@@ -1,15 +1,18 @@
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Frame {
@@ -20,6 +23,7 @@ public class Frame {
 	private JPanel panel;
 	private final String title = "Book Reader";
 	
+	
 	// file operation panel
 	private JPanel fileOpPanel;
 	private JLabel fileOpLabel;
@@ -27,21 +31,30 @@ public class Frame {
 	private JButton openFileButton;
 	private JButton closeFileButton;
 	
+	
 	// text display panel
 	private JPanel textDisplayPanel;
-	private JLabel textDisplay;
+	private JTextArea textDisplay;
+	private JScrollPane textDisplayAreaScrollPane;
+	
 	
 	// status panel
 	private JPanel statusPanel;
 	private JLabel statusText;
+	private JLabel locationText;
+	
 	
 	// variables
 	private String fileDir;
 	
+	
+	// constructor
 	public Frame() {
 		initWindow();
 	}
 	
+	
+	// setup
 	private void initWindow() {
 		window = new JFrame(title);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -146,9 +159,20 @@ public class Frame {
 	}
 	
 	private void initTextDisplayGUI() {
-		textDisplay = new JLabel("<html><center><h1>Please opan a file to read more text.</h1></center><br><p>Line1....................................................................................................................................................................................<br>Line2<br>Line3</p></html>");
-		textDisplay.setAlignmentX(Component.LEFT_ALIGNMENT);
-		textDisplay.setHorizontalAlignment(0);
+		textDisplay = new JTextArea();
+		textDisplay.setEditable(false);
+		
+		textDisplayAreaScrollPane = new JScrollPane(textDisplay);
+		textDisplayAreaScrollPane.setPreferredSize(new Dimension(380, 270));
+		textDisplayAreaScrollPane.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {  
+	        public void adjustmentValueChanged(AdjustmentEvent e) {  
+	            e.getAdjustable().setValue(e.getAdjustable().getMaximum());  
+	        }
+	    });
+		
+		textDisplay.setMinimumSize(new Dimension(760, 640));
+		textDisplay.setPreferredSize(new Dimension(760, 640));
+		textDisplay.setMaximumSize(new Dimension(760, 640));
 	}
 	
 	private void initStatusPanel() {
@@ -158,12 +182,17 @@ public class Frame {
 		
 		initStatusGUI();
 		statusPanel.add(statusText);
+		statusPanel.add(locationText);
 	}
 	
 	private void initStatusGUI() {
-		statusText = new JLabel("file is not opened");
+		statusText = new JLabel("file is opened");
+		
+		locationText = new JLabel("| chapter 0, page 0");
 	}
 	
+	
+	// setters
 	public void changeContent(String text) {
 		textDisplay.setText(text);
 	}
@@ -178,6 +207,10 @@ public class Frame {
 	
 	public void setRepeating() {
 		statusText.setText("repeating");
+	}
+	
+	public void updateLocation(int chapter, int page) {
+		locationText.setText("| chapter " + chapter + ", page " + page);
 	}
 
 }
