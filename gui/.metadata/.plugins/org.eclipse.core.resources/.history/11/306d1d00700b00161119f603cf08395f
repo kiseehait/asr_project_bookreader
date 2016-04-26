@@ -1,8 +1,0 @@
-
-public class Controller {
-	private Frame frame;
-	
-	public Controller(Frame frame) {
-		this.frame = frame;
-	}
-}
