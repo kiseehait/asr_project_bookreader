@@ -5,5 +5,7 @@ public class Main {
 		Controller c = new Controller(f);
 		
 		c.goToFrontCover();
+		c.goToContent();
+		c.goToPage(255);
 	}
 }
