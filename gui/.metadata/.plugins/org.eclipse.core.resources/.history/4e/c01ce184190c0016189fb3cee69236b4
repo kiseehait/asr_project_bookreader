@@ -21,18 +21,15 @@ public class Controller {
 				"This is a preface of this sample book.",
 				
 				// 2:Contents
-				"\t\t\t\tContents\n\n\tContent\t\t\t\t\t\tPage\n\tChapter1\t\t\t\t\t\t1\n\tChapter2\t\t\t\t\t\t22\n\tChapter3\t\t\t\t\t\t43\n\tChapter4\t\t\t\t\t\t64\n\tChapter5\t\t\t\t\t\t85\n\tChapter6\t\t\t\t\t\t106\n\tChapter7\t\t\t\t\t\t127\n\tChapter8\t\t\t\t\t\t148\n\tChapter9\t\t\t\t\t\t169\n\tChapter10\t\t\t\t\t\t190\n\tChapter11\t\t\t\t\t\t211\n\tChapter12\t\t\t\t\t\t232\n\tAppendix\t\t\t\t\t\t253\n\tIndex\t\t\t\t\t\t254\n\tReference\t\t\t\t\t\t255"
+				"\t\t\t\tContents\n\n\tContent\t\t\t\t\t\tPage\n\tChapter1\t\t\t\t\t\t0\n\tChapter2\t\t\t\t\t\t21\n\tChapter3\t\t\t\t\t\t42\n\tChapter4\t\t\t\t\t\t63\n\tChapter5\t\t\t\t\t\t84\n\tChapter6\t\t\t\t\t\t105\n\tChapter7\t\t\t\t\t\t126\n\tChapter8\t\t\t\t\t\t147\n\tChapter9\t\t\t\t\t\t168\n\tChapter10\t\t\t\t\t\t189\n\tChapter11\t\t\t\t\t\t210\n\tChapter12\t\t\t\t\t\t231\n\tAppendix\t\t\t\t\t\t252\n\tIndex\t\t\t\t\t\t253\n\tReference\t\t\t\t\t\t254"
 			},
 			
 			// 1:Chapter 1
 			{
-				// 0:Not Use
-				"This page is blank.",
-				
-				// 1:Begin Chapter Page
+				// 0:Begin Chapter Page
 				"This is Chapter 1's Cover",
 				
-				// 2-21:Page 1-20
+				// 1-20:Page 1-20
 				"This is Chapter 1 Page 1",
 				"This is Chapter 1 Page 2",
 				"This is Chapter 1 Page 3",
@@ -55,7 +52,7 @@ public class Controller {
 				"This is Chapter 1 Page 20"
 			},
 			
-			// 0:Chapter 2
+			// 2:Chapter 2
 			{
 				"This is Chapter 2's Cover",
 
